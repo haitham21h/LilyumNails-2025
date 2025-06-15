@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>تم تسجيل الطلب - Lilyum Nails</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="imege/logo/logo.png" type="image/png" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header>
+    <img src="imege/logo/logo.png" alt="Lilyum Logo" />
+    <h1>Lilyum Nails</h1>
+    <p class="subtitle">صفحة التأكيد</p>
+  </header>
+
+  <section class="success-message" data-aos="fade-up" data-aos-delay="300" style="max-width: 800px; margin: 40px auto; padding: 40px; background: rgba(255,255,255,0.6); backdrop-filter: blur(12px); border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center;">
+    <h2 style="color: #ad1457; font-size: 2rem;">🎉 تم تسجيل طلبك بنجاح!</h2>
+    <p style="font-size: 1.1rem; margin: 20px 0;">سنقوم بالتواصل معك خلال أقرب وقت ممكن عبر واتساب.</p>
+
+    <a id="whatsapp-link" href="#" target="_blank" style="display: inline-block; background: #25D366; color: white; padding: 14px 28px; border-radius: 12px; font-weight: bold; font-size: 1.1rem; text-decoration: none; transition: transform 0.3s ease;">
+      افتحي واتساب الآن
+    </a>
+
+    <p style="margin-top: 25px; font-size: 1rem; color: #555;">لا تنسي إرسال صور يديك عبر الواتساب لتحديد المقاسات بدقة 💬</p>
+  </section>
+
+  <section style="text-align: center; margin-top: 30px;">
+    <p style="font-size: 1rem;">يمكنك أيضاً:</p>
+    <ul style="list-style: none; padding: 0; font-weight: 500; font-size: 0.95rem;">
+      <li><a href="index.html">العودة للصفحة الرئيسية</a></li>
+      <li><a href="gallery.html">استكشاف المزيد من التصاميم</a></li>
+      <li><a href="faq.html">قراءة الأسئلة الشائعة</a></li>
+      <li><a href="about.html">عن ليليوم نيلز</a></li>
+      <li><a href="https://instagram.com/1lilyum.nails" target="_blank">متابعتنا على إنستقرام</a></li>
+      <li><a href="https://www.tiktok.com/@1lilyum_nails" target="_blank">متابعتنا على تيك توك</a></li>
+      <li><a href="https://salla.sa/lamsa-1" target="_blank">زيارة المتجر الرسمي</a></li>
+    </ul>
+  </section>
+
+  <footer style="padding: 3.8rem 0 2.35rem 0; background: rgba(255,255,255,0.85); box-shadow: 0 -2px 16px rgba(173,20,87,0.07); border-radius: 1.618rem 1.618rem 0 0; margin-top: 3.8rem;">
+    <p style="margin: 0; font-size: 1.1rem; color: #ad1457; letter-spacing: 0.05em;">جميع الحقوق محفوظة &copy; Lilyum Nails — صُنع بكل 💅 حب وجمال</p>
+  </footer>
+
+  <script>
+    const msg = localStorage.getItem("lilyum_msg");
+    const link = document.getElementById("whatsapp-link");
+    if (link && msg) {
+      const encoded = encodeURIComponent(decodeURIComponent(msg));
+      link.href = `https://api.whatsapp.com/send?phone=966549542823&text=${encoded}`;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, delay: 400 });</script>
+</body>
+</html>

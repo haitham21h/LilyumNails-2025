@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>معرض التصاميم - Lilyum Nails</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="imege/logo/logo.png" type="image/png" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .gallery-hero {
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .gallery-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(233, 30, 99, 0.1), rgba(173, 20, 87, 0.1));
+      animation: heroShimmer 4s ease-in-out infinite;
+    }
+    
+    .gallery-hero h2 {
+      font-size: 2.5rem;
+      color: #ad1457;
+      margin-bottom: 15px;
+      animation: titleGlow 3s ease-in-out infinite;
+    }
+    
+    .gallery-hero p {
+      font-size: 1.3rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .gallery-filter {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.3);
+      border: 2px solid rgba(233, 30, 99, 0.3);
+      border-radius: 25px;
+      color: #ad1457;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    .filter-btn:hover, .filter-btn.active {
+      background: linear-gradient(135deg, #e91e63, #ad1457);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(233, 30, 99, 0.3);
+    }
+    
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+    
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(233, 30, 99, 0.1), rgba(173, 20, 87, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+    
+    .gallery-item:hover::before {
+      opacity: 1;
+    }
+    
+    .gallery-item::after {
+      content: '👁️ عرض';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(233, 30, 99, 0.9);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+    
+    .gallery-item:hover::after {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.1);
+      filter: brightness(0.8);
+    }
+    
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      backdrop-filter: blur(10px);
+    }
+    
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 20px;
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+      animation: lightboxZoom 0.3s ease-out;
+    }
+    
+    .lightbox.active {
+      display: flex;
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      background: rgba(233, 30, 99, 0.8);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .lightbox-close:hover {
+      background: rgba(233, 30, 99, 1);
+      transform: scale(1.1);
+    }
+    
+    .gallery-stats {
+      text-align: center;
+      margin: 40px 0;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #e91e63;
+      display: block;
+      animation: countUp 2s ease-out;
+    }
+    
+    .stat-label {
+      font-size: 1rem;
+      color: #666;
+      margin-top: 5px;
+    }
+    
+    @keyframes heroShimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    @keyframes titleGlow {
+      0%, 100% { text-shadow: 0 0 10px rgba(233, 30, 99, 0.3); }
+      50% { text-shadow: 0 0 20px rgba(233, 30, 99, 0.6); }
+    }
+    
+    @keyframes lightboxZoom {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    
+    @keyframes countUp {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+      <li><a href="gallery.html" class="active"><i class="fas fa-images"></i> المعرض</a></li>
+      <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة</a></li>
+      <li><a href="about.html"><i class="fas fa-info-circle"></i> عنّا</a></li>
+      <li><a href="https://salla.sa/lamsa-1" target="_blank"><i class="fas fa-store"></i> المتجر</a></li>
+    </ul>
+  </nav>
+
+  <header data-aos="fade-down" data-aos-duration="1000">
+    <img src="imege/logo/logo.png" alt="Lilyum Logo" data-aos="zoom-in" data-aos-delay="300">
+    <h1 data-aos="fade-up" data-aos-delay="500">Lilyum Nails</h1>
+    <p class="subtitle" data-aos="fade-up" data-aos-delay="600">معرض التصاميم</p>
+    <p class="tagline" data-aos="fade-up" data-aos-delay="700">شاهدي جمال التصاميم المختارة وألهمي إطلالتك القادمة!</p>
+  </header>
+
+  <section class="gallery-hero" data-aos="fade-up" data-aos-delay="200">
+    <h2><i class="fas fa-palette"></i> مجموعة تصاميمنا المميزة</h2>
+    <p>استكشفي عالماً من الإبداع والجمال في كل تصميم</p>
+    
+    <div class="gallery-filter" data-aos="fade-up" data-aos-delay="400">
+      <button class="filter-btn active" data-filter="all">
+        <i class="fas fa-th"></i> جميع التصاميم
+      </button>
+      <button class="filter-btn" data-filter="classic">
+        <i class="fas fa-gem"></i> كلاسيكي
+      </button>
+      <button class="filter-btn" data-filter="modern">
+        <i class="fas fa-star"></i> عصري
+      </button>
+      <button class="filter-btn" data-filter="artistic">
+        <i class="fas fa-paint-brush"></i> فني
+      </button>
+    </div>
+  </section>
+
+  <section class="gallery-section" data-aos="fade-up" data-aos-delay="300">
+    <div class="gallery-grid">
+      <div class="gallery-item" data-category="classic" data-aos="zoom-in" data-aos-delay="100">
+        <img src="imege/gallery/gallery1.jpg" alt="تصميم كلاسيكي أنيق" />
+      </div>
+      <div class="gallery-item" data-category="modern" data-aos="zoom-in" data-aos-delay="200">
+        <img src="imege/gallery/gallery2.jpg" alt="تصميم عصري مبتكر" />
+      </div>
+      <div class="gallery-item" data-category="artistic" data-aos="zoom-in" data-aos-delay="300">
+        <img src="imege/gallery/gallery3.jpg" alt="تصميم فني إبداعي" />
+      </div>
+      <div class="gallery-item" data-category="classic" data-aos="zoom-in" data-aos-delay="400">
+        <img src="imege/gallery/gallery4.jpg" alt="تصميم كلاسيكي راقي" />
+      </div>
+      <div class="gallery-item" data-category="modern" data-aos="zoom-in" data-aos-delay="500">
+        <img src="imege/gallery/gallery5.jpg" alt="تصميم عصري جذاب" />
+      </div>
+      <div class="gallery-item" data-category="artistic" data-aos="zoom-in" data-aos-delay="600">
+        <img src="imege/gallery/gallery6.jpg" alt="تصميم فني متميز" />
+      </div>
+      <div class="gallery-item" data-category="classic" data-aos="zoom-in" data-aos-delay="700">
+        <img src="imege/gallery/gallery7.jpg" alt="تصميم كلاسيكي فاخر" />
+      </div>
+      <div class="gallery-item" data-category="modern" data-aos="zoom-in" data-aos-delay="800">
+        <img src="imege/gallery/gallery8.jpg" alt="تصميم عصري أنيق" />
+      </div>
+      <div class="gallery-item" data-category="artistic" data-aos="zoom-in" data-aos-delay="900">
+        <img src="imege/gallery/gallery9.jpg" alt="تصميم فني رائع" />
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-stats" data-aos="fade-up" data-aos-delay="400">
+    <h3><i class="fas fa-chart-line"></i> إحصائيات معرضنا</h3>
+    <div class="stats-grid">
+      <div class="stat-item" data-aos="flip-up" data-aos-delay="100">
+        <span class="stat-number" data-count="500">0</span>
+        <div class="stat-label">تصميم مميز</div>
+      </div>
+      <div class="stat-item" data-aos="flip-up" data-aos-delay="200">
+        <span class="stat-number" data-count="1200">0</span>
+        <div class="stat-label">عميلة سعيدة</div>
+      </div>
+      <div class="stat-item" data-aos="flip-up" data-aos-delay="300">
+        <span class="stat-number" data-count="50">0</span>
+        <div class="stat-label">تصميم أسبوعياً</div>
+      </div>
+      <div class="stat-item" data-aos="flip-up" data-aos-delay="400">
+        <span class="stat-number" data-count="99">0</span>
+        <div class="stat-label">% رضا العملاء</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-close" id="lightbox-close">
+      <i class="fas fa-times"></i>
+    </div>
+    <img src="" alt="عرض مكبر">
+  </div>
+
+  <footer data-aos="fade-up" data-aos-duration="800">
+    <div class="footer-social">
+      <a href="https://www.instagram.com/1lilyum.nails" target="_blank" class="icon-link" data-aos="flip-left" data-aos-delay="100">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@1lilyum_nails" target="_blank" class="icon-link" data-aos="flip-left" data-aos-delay="200">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <a href="https://api.whatsapp.com/send?phone=966549542823" target="_blank" class="icon-link" data-aos="flip-left" data-aos-delay="300">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://salla.sa/lamsa-1" target="_blank" class="icon-link" data-aos="flip-left" data-aos-delay="400">
+        <i class="fas fa-store"></i>
+      </a>
+    </div>
+    <p data-aos="fade-up" data-aos-delay="500">
+      جميع الحقوق محفوظة &copy; Lilyum Nails — صُنع بكل <i class="fas fa-heart"></i> حب وجمال
+    </p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({ 
+      duration: 800, 
+      delay: 100,
+      once: true,
+      easing: 'ease-out-cubic'
+    });
+
+    // Lightbox functionality
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+    const lightboxClose = document.getElementById("lightbox-close");
+    
+    document.querySelectorAll(".gallery-item img").forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.classList.add("active");
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      document.body.style.overflow = 'auto';
+    }
+    
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        const filter = btn.getAttribute('data-filter');
+        
+        galleryItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+            item.style.animation = 'fadeIn 0.5s ease-out';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+    
+    // Counter animation
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stat-number');
+      
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          counter.textContent = Math.floor(current);
+        }, 16);
+      });
+    }
+    
+    // Trigger counter animation when stats section is visible
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+    
+    const statsSection = document.querySelector('.gallery-stats');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+    
+    // Add keyboard navigation for lightbox
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
+

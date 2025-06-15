@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلب تصميم أظافر - Lilyum Nails</title>
+    <link rel="icon" href="imege/logo/logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Loading Screen -->
+<!-- <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+        <div class="loading-logo">
+            <img src="imege/logo/logo.png" alt="Lilyum Logo">
+            <div class="loading-sparkles">
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+            </div>
+        </div>
+        <div class="loading-text">
+            <h2>Lilyum Nails</h2>
+            <p>جاري تحضير تجربة جمالية مميزة...</p>
+        </div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+        <div class="loading-dots">
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+        </div>
+    </div>
+</div> -->
+
+<nav class="top-nav">
+    <ul>
+        <li><a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+        <li><a href="gallery.html"><i class="fas fa-images"></i> المعرض</a></li>
+        <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> عنّا</a></li>
+        <li><a href="https://salla.sa/lamsa-1" target="_blank"><i class="fas fa-store"></i> المتجر</a></li>
+    </ul>
+</nav>
+
+<header data-aos="fade-down" data-aos-duration="1000">
+    <div class="header-decoration">
+        <div class="floating-nail nail-1">💅</div>
+        <div class="floating-nail nail-2">✨</div>
+        <div class="floating-nail nail-3">💎</div>
+        <div class="floating-nail nail-4">🌸</div>
+    </div>
+    <img src="imege/logo/logo.png" alt="Lilyum Logo" data-aos="zoom-in" data-aos-delay="300">
+    <h1 data-aos="fade-up" data-aos-delay="500">Lilyum Nails</h1>
+    <p class="tagline" data-aos="fade-up" data-aos-delay="700">اختاري شكل أظافرك المميز وابدئي رحلتك مع الفن والجمال!</p>
+    <div class="header-sparkle">
+        <div class="sparkle-particle"></div>
+        <div class="sparkle-particle"></div>
+        <div class="sparkle-particle"></div>
+    </div>
+</header>
+
+<form id="order-form" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+    <div class="form-header">
+        <h2><i class="fas fa-magic"></i> نموذج طلب التصميم</h2>
+        <p>املئي البيانات التالية لنصنع لك تحفة فنية على أطراف أصابعك</p>
+    </div>
+
+    <div class="form-group" data-aos="fade-right" data-aos-delay="100">
+        <label><i class="fas fa-user"></i> الاسم الكامل</label>
+        <input type="text" id="name" required placeholder="اكتبي اسمك الكريم">
+    </div>
+
+    <div class="form-group" data-aos="fade-left" data-aos-delay="200">
+        <label><i class="fas fa-phone"></i> رقم الجوال</label>
+        <input type="tel" id="phone" required placeholder="05xxxxxxxx">
+    </div>
+
+    <div class="form-group" data-aos="fade-up" data-aos-delay="300">
+        <label><i class="fas fa-shapes"></i> شكل الأظافر</label>
+        <input type="hidden" id="shape" required>
+        <div class="shape-picker">
+            <div class="shape-option" data-aos="zoom-in" data-aos-delay="400">
+                <img src="imege/shapes/square.png" data-shape="مربع" alt="مربع">
+                <span>مربع</span>
+            </div>
+            <div class="shape-option" data-aos="zoom-in" data-aos-delay="500">
+                <img src="imege/shapes/oval.png" data-shape="بيضاوي" alt="بيضاوي">
+                <span>بيضاوي</span>
+            </div>
+            <div class="shape-option" data-aos="zoom-in" data-aos-delay="600">
+                <img src="imege/shapes/almond.png" data-shape="لوزي" alt="لوزي">
+                <span>لوزي</span>
+            </div>
+            <div class="shape-option" data-aos="zoom-in" data-aos-delay="700">
+                <img src="imege/shapes/coffin.png" data-shape="تابوت" alt="تابوت">
+                <span>تابوت</span>
+            </div>
+            <div class="shape-option" data-aos="zoom-in" data-aos-delay="800">
+                <img src="imege/shapes/stiletto.png" data-shape="خنجر" alt="خنجر">
+                <span>خنجر</span>
+            </div>
+            <div class="shape-option" data-aos="zoom-in" data-aos-delay="900">
+                <img src="imege/shapes/round.png" data-shape="مستدير" alt="مستدير">
+                <span>مستدير</span>
+            </div>
+        </div>
+        <p class="note" data-aos="fade-up" data-aos-delay="1000">
+            <i class="fas fa-hand-pointer"></i> اضغطي على الشكل الذي يعجبك لاختياره
+        </p>
+    </div>
+
+    <div class="form-group" data-aos="fade-right" data-aos-delay="400">
+        <label><i class="fas fa-ruler"></i> هل تعرفين مقاسات أظافرك؟</label>
+        <select id="know-sizes" required class="glass-select">
+            <option value="">اختاري...</option>
+            <option value="yes">نعم، أعرف المقاسات</option>
+            <option value="no">لا، سأرسل صور القياس</option>
+        </select>
+    </div>
+
+    <div id="sizes-section" class="hidden"></div>
+    <div id="photo-instructions" class="note hidden" data-aos="fade-up">
+        <i class="fas fa-camera"></i> بعد إرسال الطلب، سوف تقومين بإرسال صور يديك عبر الواتساب كما يلي:<br>
+        - صورة لأربع أصابع بجانب عملة معدنية لكل يد<br>
+        - ثم صورة لكل إبهام على حدة
+    </div>
+
+    <div class="form-group" data-aos="fade-left" data-aos-delay="500">
+        <label><i class="fas fa-palette"></i> وصف التصميم المطلوب</label>
+        <textarea id="design-note" rows="4" placeholder="اكتبي وصفاً مفصلاً للتصميم الذي تريدينه، أو اتركي المجال لإبداعنا..."></textarea>
+    </div>
+
+    <div class="inspiration-note" data-aos="fade-up" data-aos-delay="600">
+        <i class="fas fa-star"></i> كوني مميزة – نحن نصمم لك فنًا يعكس شخصيتك! <i class="fas fa-star"></i>
+    </div>
+
+    <div class="note hidden" id="full-sizes-note" data-aos="fade-up">
+        <i class="fas fa-check-circle"></i> تم إدخال جميع المقاسات — سوف أقوم بإرفاق صورة التصميم إن وجدت.
+    </div>
+
+    <button type="button" id="send-btn" data-aos="zoom-in" data-aos-delay="700">
+        <i class="fab fa-whatsapp"></i> إرسال عبر واتساب
+        <div class="button-sparkle"></div>
+    </button>
+</form>
+
+<footer data-aos="fade-up" data-aos-duration="800">
+    <div class="footer-decoration">
+        <div class="footer-sparkle"></div>
+        <div class="footer-sparkle"></div>
+        <div class="footer-sparkle"></div>
+    </div>
+    <div class="footer-social">
+        <a href="https://www.instagram.com/1lilyum.nails" target="_blank" class="icon-link" data-aos="flip-left" data-aos-delay="100">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@1lilyum_nails" target="_blank" class="icon-link" data-aos="flip-left" data-aos-delay="200">
+            <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=966549542823" target="_blank" class="icon-link" data-aos="flip-left" data-aos-delay="300">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://salla.sa/lamsa-1" target="_blank" class="icon-link" data-aos="flip-left" data-aos-delay="400">
+            <i class="fas fa-store"></i>
+        </a>
+    </div>
+    <p data-aos="fade-up" data-aos-delay="500">
+        جميع الحقوق محفوظة &copy; Lilyum Nails — صُنع بكل <i class="fas fa-heart"></i> حب وجمال
+    </p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({
+        delay: 100,
+        duration: 800,
+        once: true,
+        easing: 'ease-out-cubic'
+    });
+
+    // Loading Screen Animation
+    window.addEventListener('load', function() {
+        const loadingScreen = document.getElementById('loading-screen');
+        const progressBar = document.querySelector('.loading-progress');
+        
+        // Animate progress bar in stages
+        setTimeout(() => {
+            progressBar.style.width = '30%';
+        }, 300);
+        
+        setTimeout(() => {
+            progressBar.style.width = '60%';
+        }, 800);
+        
+        setTimeout(() => {
+            progressBar.style.width = '90%';
+        }, 1300);
+        
+        setTimeout(() => {
+            progressBar.style.width = '100%';
+        }, 1800);
+        
+        // Hide loading screen with smooth transition
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                // Show welcome message briefly
+                showWelcomeMessage();
+            }, 800);
+        }, 2500);
+    });
+
+    // Welcome message function
+    function showWelcomeMessage() {
+        const welcomeOverlay = document.createElement('div');
+        welcomeOverlay.className = 'welcome-overlay';
+        welcomeOverlay.innerHTML = `
+            <div class="welcome-content">
+                <h1>أهلاً وسهلاً</h1>
+                <p>مرحباً بك في عالم Lilyum Nails</p>
+                <button class="welcome-button" onclick="hideWelcome()">ابدئي رحلتك</button>
+            </div>
+        `;
+        document.body.appendChild(welcomeOverlay);
+        
+        setTimeout(() => {
+            welcomeOverlay.style.display = 'flex';
+        }, 100);
+        
+        // Auto hide after 4 seconds
+        setTimeout(() => {
+            hideWelcome();
+        }, 4000);
+    }
+
+    // Hide welcome function
+    function hideWelcome() {
+        const welcomeOverlay = document.querySelector('.welcome-overlay');
+        if (welcomeOverlay) {
+            welcomeOverlay.style.opacity = '0';
+            setTimeout(() => {
+                welcomeOverlay.remove();
+            }, 500);
+        }
+    }
+
+    // Add floating animation to decorative elements
+    function addFloatingAnimation() {
+        const floatingElements = document.querySelectorAll('.floating-nail, .sparkle-particle, .footer-sparkle');
+        floatingElements.forEach((element, index) => {
+            element.style.animationDelay = `${index * 0.5}s`;
+        });
+    }
+
+    // Add interactive hover effects
+    function addInteractiveEffects() {
+        const formGroups = document.querySelectorAll('.form-group');
+        formGroups.forEach(group => {
+            group.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+                this.style.transition = 'all 0.3s ease';
+            });
+            
+            group.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    }
+
+    // Initialize animations
+    document.addEventListener('DOMContentLoaded', function() {
+        addFloatingAnimation();
+        addInteractiveEffects();
+    });
+</script>
+<script src="script.js"></script>
+
+<style>
+/* Loading Screen Styles */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 25%, #fce4ec 50%, #f8bbd9 75%, #f48fb1 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.5s ease;
+}
+
+.loading-content {
+    text-align: center;
+    animation: loadingPulse 2s ease-in-out infinite;
+}
+
+.loading-logo {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.loading-logo img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(233, 30, 99, 0.3);
+    animation: logoSpin 3s linear infinite;
+}
+
+.loading-sparkles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.sparkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #e91e63;
+    border-radius: 50%;
+    animation: sparkleFloat 2s ease-in-out infinite;
+}
+
+.sparkle:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+.sparkle:nth-child(2) { top: 20%; right: 15%; animation-delay: 0.4s; }
+.sparkle:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 0.8s; }
+.sparkle:nth-child(4) { bottom: 10%; right: 20%; animation-delay: 1.2s; }
+.sparkle:nth-child(5) { top: 50%; left: 10%; animation-delay: 1.6s; }
+
+.loading-text h2 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #e91e63, #ad1457);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    animation: textGlow 2s ease-in-out infinite;
+}
+
+.loading-text p {
+    font-size: 1.2rem;
+    color: #ad1457;
+    margin-bottom: 30px;
+}
+
+.loading-bar {
+    width: 300px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.loading-progress {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #e91e63, #ad1457);
+    border-radius: 3px;
+    transition: width 1.5s ease-out;
+}
+
+/* Header Decorations */
+.header-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.floating-nail {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatUpDown 4s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.nail-1 { top: 20%; left: 10%; animation-delay: 0s; }
+.nail-2 { top: 30%; right: 15%; animation-delay: 1s; }
+.nail-3 { bottom: 40%; left: 20%; animation-delay: 2s; }
+.nail-4 { bottom: 30%; right: 10%; animation-delay: 3s; }
+
+.header-sparkle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 50px;
+}
+
+.sparkle-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #e91e63;
+    border-radius: 50%;
+    animation: sparkleRise 3s ease-in-out infinite;
+}
+
+.sparkle-particle:nth-child(1) { left: 30%; animation-delay: 0s; }
+.sparkle-particle:nth-child(2) { left: 50%; animation-delay: 1s; }
+.sparkle-particle:nth-child(3) { left: 70%; animation-delay: 2s; }
+
+/* Form Enhancements */
+.form-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(233, 30, 99, 0.2);
+}
+
+.form-header h2 {
+    font-size: 2rem;
+    color: #ad1457;
+    margin-bottom: 10px;
+}
+
+.form-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.shape-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.shape-option span {
+    font-size: 0.9rem;
+    color: #ad1457;
+    font-weight: 500;
+}
+
+.shape-option.selected span {
+    color: #e91e63;
+    font-weight: 600;
+}
+
+.inspiration-note {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 193, 7, 0.1));
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #ad1457;
+    font-weight: 500;
+    margin: 25px 0;
+    border: 2px solid rgba(255, 193, 7, 0.3);
+}
+
+.button-sparkle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: translateX(-100%);
+    animation: buttonShine 2s ease-in-out infinite;
+}
+
+/* Footer Decorations */
+.footer-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.footer-sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #e91e63;
+    border-radius: 50%;
+    animation: sparkleFloat 3s ease-in-out infinite;
+}
+
+.footer-sparkle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+.footer-sparkle:nth-child(2) { top: 30%; right: 25%; animation-delay: 1s; }
+.footer-sparkle:nth-child(3) { bottom: 40%; left: 30%; animation-delay: 2s; }
+
+/* Animations */
+@keyframes loadingPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes logoSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes sparkleFloat {
+    0%, 100% { transform: translateY(0px) scale(1); opacity: 1; }
+    50% { transform: translateY(-20px) scale(1.2); opacity: 0.7; }
+}
+
+@keyframes textGlow {
+    0%, 100% { text-shadow: 0 0 10px rgba(233, 30, 99, 0.3); }
+    50% { text-shadow: 0 0 20px rgba(233, 30, 99, 0.6); }
+}
+
+@keyframes floatUpDown {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes sparkleRise {
+    0% { transform: translateY(0px); opacity: 1; }
+    100% { transform: translateY(-50px); opacity: 0; }
+}
+
+@keyframes buttonShine {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+</style>
+</body>
+</html>
+

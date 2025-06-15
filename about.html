@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عنّا - Lilyum Nails</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="imege/logo/logo.png" type="image/png">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .about-hero {
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(233, 30, 99, 0.1), rgba(173, 20, 87, 0.1));
+      animation: heroShimmer 4s ease-in-out infinite;
+    }
+    
+    .about-hero h2 {
+      font-size: 2.5rem;
+      color: #ad1457;
+      margin-bottom: 15px;
+      animation: titleGlow 3s ease-in-out infinite;
+    }
+    
+    .about-hero p {
+      font-size: 1.3rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .story-timeline {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+      position: relative;
+    }
+    
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, #e91e63, #ad1457);
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    
+    .timeline-item {
+      display: flex;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    
+    .timeline-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    
+    .timeline-content {
+      flex: 1;
+      max-width: 45%;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(25px);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(173, 20, 87, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(173, 20, 87, 0.15);
+    }
+    
+    .timeline-content::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      width: 0;
+      height: 0;
+      border: 15px solid transparent;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content::before {
+      right: -30px;
+      border-left-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content::before {
+      left: -30px;
+      border-right-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .timeline-icon {
+      position: absolute;
+      left: 50%;
+      top: 20px;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #e91e63, #ad1457);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
+      z-index: 2;
+    }
+    
+    .timeline-content h3 {
+      color: #ad1457;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .timeline-content .icon {
+      font-size: 1.5rem;
+      color: #e91e63;
+    }
+    
+    .timeline-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #555;
+      margin: 0;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    
+    .value-card {
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(25px);
+      padding: 40px 30px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(173, 20, 87, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .value-card:hover::before {
+      left: 100%;
+    }
+    
+    .value-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(173, 20, 87, 0.15);
+    }
+    
+    .value-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #e91e63, #ad1457);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px auto;
+      font-size: 2rem;
+      color: white;
+      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
+      animation: iconFloat 3s ease-in-out infinite;
+    }
+    
+    .value-card:nth-child(2) .value-icon {
+      animation-delay: 0.5s;
+    }
+    
+    .value-card:nth-child(3) .value-icon {
+      animation-delay: 1s;
+    }
+    
+    .value-card h3 {
+      color: #ad1457;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    
+    .value-card p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #555;
+      margin: 0;
+    }
+    
+    .team-section {
+      text-align: center;
+      margin: 80px 0;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(173, 20, 87, 0.1));
+      border-radius: 30px;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .team-section h3 {
+      font-size: 2.2rem;
+      color: #ad1457;
+      margin-bottom: 20px;
+    }
+    
+    .team-section p {
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+      line-height: 1.8;
+    }
+    
+    .team-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .team-stat {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #e91e63;
+      display: block;
+      animation: countUp 2s ease-out;
+    }
+    
+    .stat-label {
+      font-size: 1.1rem;
+      color: #666;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+    
+    .cta-section {
+      text-align: center;
+      margin: 60px 0;
+      padding: 50px 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .cta-section h3 {
+      font-size: 2rem;
+      color: #ad1457;
+      margin-bottom: 15px;
+    }
+    
+    .cta-section p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .cta-btn {
+      padding: 15px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+    
+    .cta-btn:hover::before {
+      left: 100%;
+    }
+    
+    .cta-btn.primary {
+      background: linear-gradient(135deg, #e91e63, #ad1457);
+      color: white;
+      box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
+    }
+    
+    .cta-btn.primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(233, 30, 99, 0.4);
+    }
+    
+    .cta-btn.secondary {
+      background: rgba(255, 255, 255, 0.3);
+      color: #ad1457;
+      border: 2px solid rgba(233, 30, 99, 0.3);
+    }
+    
+    .cta-btn.secondary:hover {
+      background: rgba(233, 30, 99, 0.1);
+      border-color: #e91e63;
+      transform: translateY(-2px);
+    }
+    
+    @keyframes heroShimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    @keyframes titleGlow {
+      0%, 100% { text-shadow: 0 0 10px rgba(233, 30, 99, 0.3); }
+      50% { text-shadow: 0 0 20px rgba(233, 30, 99, 0.6); }
+    }
+    
+    @keyframes iconFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes countUp {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    
+    @media (max-width: 768px) {
+      .timeline-line {
+        left: 30px;
+      }
+      
+      .timeline-item {
+        flex-direction: column !important;
+        padding-left: 80px;
+      }
+      
+      .timeline-content {
+        max-width: 100%;
+      }
+      
+      .timeline-content::before {
+        display: none;
+      }
+      
+      .timeline-icon {
+        left: 30px;
+      }
+      
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .team-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <ul>
+    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+    <li><a href="gallery.html"><i class="fas fa-images"></i> المعرض</a></li>
+    <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة</a></li>
+    <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> عنّا</a></li>
+    <li><a href="https://salla.sa/lamsa-1" target="_blank"><i class="fas fa-store"></i> المتجر</a></li>
+  </ul>
+</nav>
+
+<header data-aos="fade-down" data-aos-duration="1000">
+  <img src="imege/logo/logo.png" alt="Lilyum Logo" data-aos="zoom-in" data-aos-delay="300">
+  <h1 data-aos="fade-up" data-aos-delay="500">Lilyum Nails</h1>
+  <p class="subtitle" data-aos="fade-up" data-aos-delay="600">من نحن</p>
+  <p class="tagline" data-aos="fade-up" data-aos-delay="700">نصنع لمستك الجمالية بكل حب واحترافية</p>
+</header>
+
+<section class="about-hero" data-aos="fade-up" data-aos-delay="200">
+  <h2><i class="fas fa-heart"></i> رحلتنا في عالم الجمال</h2>
+  <p>اكتشفي قصة نجاحنا وشغفنا بصناعة الجمال على أطراف أصابعك</p>
+</section>
+
+<section class="story-timeline" data-aos="fade-up" data-aos-delay="300">
+  <div class="timeline-line"></div>
+  
+  <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+    <div class="timeline-content">
+      <h3>
+        <span class="icon"><i class="fas fa-lightbulb"></i></span>
+        البداية والإلهام
+      </h3>
+      <p>
+        بدأت رحلتنا من حلم بسيط: أن تحصل كل امرأة على أظافر مصممة خصيصاً لها تعكس شخصيتها الفريدة. 
+        لاحظنا الحاجة لخدمة تجمع بين الجودة العالية والتصميم المخصص والراحة في الطلب.
+      </p>
+    </div>
+    <div class="timeline-icon">
+      <i class="fas fa-star"></i>
+    </div>
+  </div>
+
+  <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+    <div class="timeline-content">
+      <h3>
+        <span class="icon"><i class="fas fa-palette"></i></span>
+        تطوير الفكرة
+      </h3>
+      <p>
+        قضينا شهوراً في دراسة احتياجات السوق وتطوير تقنيات التصنيع. 
+        تعاونا مع أفضل المصممين والحرفيين لضمان جودة استثنائية في كل منتج نقدمه.
+      </p>
+    </div>
+    <div class="timeline-icon">
+      <i class="fas fa-cogs"></i>
+    </div>
+  </div>
+
+  <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+    <div class="timeline-content">
+      <h3>
+        <span class="icon"><i class="fas fa-rocket"></i></span>
+        الانطلاق الرسمي
+      </h3>
+      <p>
+        أطلقنا Lilyum Nails بمجموعة متنوعة من التصاميم والأشكال. 
+        استقبال العملاء الرائع شجعنا على التوسع وتطوير خدماتنا باستمرار.
+      </p>
+    </div>
+    <div class="timeline-icon">
+      <i class="fas fa-gem"></i>
+    </div>
+  </div>
+
+  <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+    <div class="timeline-content">
+      <h3>
+        <span class="icon"><i class="fas fa-crown"></i></span>
+        النجاح والتميز
+      </h3>
+      <p>
+        اليوم، نفخر بخدمة آلاف العميلات السعيدات وتقديم تصاميم مبتكرة تواكب أحدث صيحات الموضة. 
+        نستمر في النمو والتطوير لنبقى الخيار الأول للجمال والأناقة.
+      </p>
+    </div>
+    <div class="timeline-icon">
+      <i class="fas fa-trophy"></i>
+    </div>
+  </div>
+</section>
+
+<section class="values-section" data-aos="fade-up" data-aos-delay="400">
+  <div class="values-grid">
+    <div class="value-card" data-aos="zoom-in" data-aos-delay="100">
+      <div class="value-icon">
+        <i class="fas fa-heart"></i>
+      </div>
+      <h3>الشغف والحب</h3>
+      <p>
+        نضع كل حبنا وشغفنا في كل تصميم نصنعه. 
+        نؤمن أن الجمال يبدأ من القلب وينعكس على أطراف الأصابع.
+      </p>
+    </div>
+
+    <div class="value-card" data-aos="zoom-in" data-aos-delay="200">
+      <div class="value-icon">
+        <i class="fas fa-gem"></i>
+      </div>
+      <h3>الجودة العالية</h3>
+      <p>
+        نستخدم أفضل المواد ونطبق أعلى معايير الجودة في التصنيع. 
+        كل منتج يخضع لفحص دقيق قبل وصوله إليك.
+      </p>
+    </div>
+
+    <div class="value-card" data-aos="zoom-in" data-aos-delay="300">
+      <div class="value-icon">
+        <i class="fas fa-magic"></i>
+      </div>
+      <h3>الإبداع والتميز</h3>
+      <p>
+        نبتكر تصاميم فريدة تواكب أحدث الصيحات وتلبي أذواق عميلاتنا المتنوعة. 
+        كل تصميم قصة جمال مختلفة.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="team-section" data-aos="fade-up" data-aos-delay="500">
+  <h3><i class="fas fa-users"></i> فريقنا المتميز</h3>
+  <p>
+    نحن فريق من المبدعين والحرفيين المتخصصين في فن تصميم الأظافر. 
+    نجمع بين الخبرة الطويلة والشغف بالجمال لنقدم لك أفضل تجربة ممكنة.
+  </p>
+  
+  <div class="team-stats">
+    <div class="team-stat" data-aos="flip-up" data-aos-delay="100">
+      <span class="stat-number" data-count="5">0</span>
+      <div class="stat-label">سنوات خبرة</div>
+    </div>
+    <div class="team-stat" data-aos="flip-up" data-aos-delay="200">
+      <span class="stat-number" data-count="10">0</span>
+      <div class="stat-label">مصممين محترفين</div>
+    </div>
+    <div class="team-stat" data-aos="flip-up" data-aos-delay="300">
+      <span class="stat-number" data-count="1200">0</span>
+      <div class="stat-label">عميلة سعيدة</div>
+    </div>
+    <div class="team-stat" data-aos="flip-up" data-aos-delay="400">
+      <span class="stat-number" data-count="500">0</span>
+      <div class="stat-label">تصميم مميز</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" data-aos="fade-up" data-aos-delay="600">
+  <h3><i class="fas fa-sparkles"></i> انضمي لعائلة Lilyum</h3>
+  <p>اكتشفي عالماً من الجمال والأناقة واجعلي أظافرك تحكي قصة جمالك الفريدة</p>
+  <div class="cta-buttons">
+    <a href="index.html" class="cta-btn primary" data-aos="zoom-in" data-aos-delay="100">
+      <i class="fas fa-magic"></i>
+      اطلبي تصميمك الآن
+    </a>
+    <a href="gallery.html" class="cta-btn secondary" data-aos="zoom-in" data-aos-delay="200">
+      <i class="fas fa-images"></i>
+      شاهدي معرض التصاميم
+    </a>
+  </div>
+</section>
+
+<footer data-aos="fade-up" data-aos-duration="800">
+  <div class="footer-social">
+    <a href="https://www.instagram.com/1lilyum.nails" target="_blank" class="icon-link" data-aos="flip-left" data-aos-delay="100">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.tiktok.com/@1lilyum_nails" target="_blank" class="icon-link" data-aos="flip-left" data-aos-delay="200">
+      <i class="fab fa-tiktok"></i>
+    </a>
+    <a href="https://api.whatsapp.com/send?phone=966549542823" target="_blank" class="icon-link" data-aos="flip-left" data-aos-delay="300">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://salla.sa/lamsa-1" target="_blank" class="icon-link" data-aos="flip-left" data-aos-delay="400">
+      <i class="fas fa-store"></i>
+    </a>
+  </div>
+  <p data-aos="fade-up" data-aos-delay="500">
+    جميع الحقوق محفوظة &copy; Lilyum Nails — صُنع بكل <i class="fas fa-heart"></i> حب وجمال
+  </p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  // Initialize AOS
+  AOS.init({ 
+    duration: 800, 
+    delay: 100,
+    once: true,
+    easing: 'ease-out-cubic'
+  });
+
+  // Counter animation
+  function animateCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-count'));
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+      
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        counter.textContent = Math.floor(current);
+      }, 16);
+    });
+  }
+  
+  // Trigger counter animation when stats section is visible
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+  
+  const statsSection = document.querySelector('.team-stats');
+  if (statsSection) {
+    observer.observe(statsSection);
+  }
+
+  // Add parallax effect to timeline
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const timelineItems = document.querySelectorAll('.timeline-content');
+    
+    timelineItems.forEach((item, index) => {
+      const rate = scrolled * -0.1;
+      item.style.transform = `translateY(${rate}px)`;
+    });
+  });
+
+  // Add smooth scrolling for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Add interactive hover effects for value cards
+  const valueCards = document.querySelectorAll('.value-card');
+  valueCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-10px) scale(1.02) rotateY(5deg)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0) scale(1) rotateY(0deg)';
+    });
+  });
+
+  // Add timeline item click interaction
+  const timelineContents = document.querySelectorAll('.timeline-content');
+  timelineContents.forEach(content => {
+    content.addEventListener('click', () => {
+      content.style.transform = 'scale(1.05)';
+      setTimeout(() => {
+        content.style.transform = 'scale(1)';
+      }, 200);
+    });
+  });
+</script>
+</body>
+</html>
+
