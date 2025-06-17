@@ -261,6 +261,11 @@ input:focus, select:focus, textarea:focus {
   transform: translateY(-2px);
 }
 
+input:invalid, select:invalid, textarea:invalid {
+  border-color: #f44336;
+  box-shadow: 0 0 5px rgba(244, 67, 54, 0.5);
+}
+
 .glass-select {
   background: rgba(255, 255, 255, 0.4);
   border: 2px solid rgba(255, 255, 255, 0.3);
@@ -412,8 +417,8 @@ button:active {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
   margin-top: 40px;
   max-width: 1200px;
   margin-left: auto;
@@ -449,8 +454,12 @@ button:active {
   width: 100%;
   height: 250px;
   object-fit: cover;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
+  border-radius: 15px;
+  transition: transform 0.3s;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
 }
 
 .gallery-item:hover {
@@ -573,35 +582,23 @@ footer::before {
 
 /* Lightbox */
 .lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
   display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  backdrop-filter: blur(10px);
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 80vh;
-  border-radius: 20px;
-  box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
-  animation: lightboxZoom 0.3s ease-out;
-}
-
-@keyframes lightboxZoom {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  position: fixed;
+  background: rgba(0,0,0,0.9);
 }
 
 .lightbox.active {
   display: flex;
-  animation: fadeIn 0.3s ease-out;
+}
+
+.lightbox img {
+  max-width: 90%;
+  animation: zoomIn 0.3s;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 /* Loading Screen Styles */

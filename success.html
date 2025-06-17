@@ -51,6 +51,18 @@
       const encoded = encodeURIComponent(decodeURIComponent(msg));
       link.href = `https://api.whatsapp.com/send?phone=966549542823&text=${encoded}`;
     }
+
+    // ✅ رسالة مخصصة باسم العميلة والشكل
+    window.addEventListener('DOMContentLoaded', () => {
+      const name = localStorage.getItem("lilyum_name");
+      const shape = localStorage.getItem("lilyum_shape");
+      if (name && shape) {
+        const h2 = document.querySelector(".success-message h2");
+        if (h2) {
+          h2.innerText = `🎉 شكرًا ${name}! تم تسجيل طلبك لتصميم ${shape}`;
+        }
+      }
+    });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
