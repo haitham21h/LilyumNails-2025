@@ -88,16 +88,6 @@ sendBtn?.addEventListener('click', () => {
     alert('يرجى تعبئة جميع الحقول واختيار شكل الأظافر.');
     return;
   }
-  if (!/^05[0-9]{8}$/.test(phone)) {
-    alert('رقم الجوال غير صحيح');
-    return;
-  }
-  if (!shape) {
-    alert('يرجى اختيار شكل الأظافر.');
-    return;
-  }
-  localStorage.setItem("lilyum_name", name);
-  localStorage.setItem("lilyum_shape", shape);
 
   let msg = `مرحباً، اسمي ${name} وأرغب بطلب تصميم أظافر مخصص.\n`;
   msg += `رقم الجوال: ${phone}\n`;
@@ -140,16 +130,7 @@ window.addEventListener("DOMContentLoaded", () => {
     successLink.href = `https://api.whatsapp.com/send?phone=966549542823&text=${encoded}`;
   }
 });
-
-// Lightbox لتكبير الصور
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.querySelector(".lightbox-image");
-document.querySelectorAll(".gallery-item img").forEach(img => {
-  img.addEventListener("click", () => {
-    lightboxImg.src = img.src;
-    lightbox.classList.add("active");
-  });
-});
-function closeLightbox() {
-  lightbox.classList.remove("active");
-}
+// إعادة تعيين الرسالة عند الخروج من صفحة النجاح
+window.addEventListener("beforeunload", () => {
+  localStorage.removeItem("lilyum_msg");
+}); 

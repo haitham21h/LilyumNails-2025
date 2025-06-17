@@ -9,9 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <div class="loading-screen" id="loadingScreen">
+    <img src="imege/logo/logo.png" class="loading-logo" alt="جاري التحميل">
+  </div>
 
   <header>
-    <img src="imege/logo/logo.png" alt="Lilyum Logo" />
+    <img src="imege/logo/logo.png" alt="Lilyum Logo" data-aos="zoom-in" data-aos-delay="300">
     <h1>Lilyum Nails</h1>
     <p class="subtitle">صفحة التأكيد</p>
   </header>
@@ -48,7 +51,8 @@
     const msg = localStorage.getItem("lilyum_msg");
     const link = document.getElementById("whatsapp-link");
     if (link && msg) {
-      const encoded = encodeURIComponent(decodeURIComponent(msg));
+      // ترميز الرسالة مع استبدال \n بـ %0A
+      const encoded = encodeURIComponent(msg.replace(/\n/g, '%0A'));
       link.href = `https://api.whatsapp.com/send?phone=966549542823&text=${encoded}`;
     }
 
@@ -61,6 +65,14 @@
         if (h2) {
           h2.innerText = `🎉 شكرًا ${name}! تم تسجيل طلبك لتصميم ${shape}`;
         }
+      }
+    });
+
+    // إخفاء شاشة التحميل بعد تحميل المحتوى
+    window.addEventListener('load', () => {
+      const loadingScreen = document.getElementById("loadingScreen");
+      if (loadingScreen) {
+        loadingScreen.style.display = "none";
       }
     });
   </script>
@@ -80,3 +92,6 @@
   </script>
 </body>
 </html>
+<!--     </div> -->
+<!-- </body> -->
+<!-- </html> -->                 
